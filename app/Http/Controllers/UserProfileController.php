@@ -16,8 +16,6 @@ class UserProfileController extends Controller
     {
         $attributes = $request->validate([
             'username' => ['required','max:255', 'min:2'],
-            'firstname' => ['max:100'],
-            'lastname' => ['max:100'],
             'email' => ['required', 'email', 'max:255',  Rule::unique('users')->ignore(auth()->user()->id),],
             'address' => ['max:100'],
             'city' => ['max:100'],
@@ -28,8 +26,6 @@ class UserProfileController extends Controller
 
         auth()->user()->update([
             'username' => $request->get('username'),
-            'firstname' => $request->get('firstname'),
-            'lastname' => $request->get('lastname'),
             'email' => $request->get('email') ,
             'address' => $request->get('address'),
             'city' => $request->get('city'),
@@ -37,6 +33,6 @@ class UserProfileController extends Controller
             'postal' => $request->get('postal'),
             'about' => $request->get('about')
         ]);
-        return back()->with('succes', 'Profile succesfully updated');
+        return back()->with('succes', 'Data Berhasil Di Update!');
     }
 }
