@@ -5,7 +5,7 @@
     <div class="container-fluid py-4">
             <div class="card z-index-2 h-100">
                     <div class="card-header pb-0 pt-3 bg-transparent">
-                        <h6 class="text-capitalize">Selamat Datang di PT.Nando Sejahtera</h6>
+                        <h6 class="text-capitalize">Selamat Datang di PT.Musi Energi Sukses Indah</h6>
                     </div>
             </div>
         @include('layouts.footers.auth.footer')

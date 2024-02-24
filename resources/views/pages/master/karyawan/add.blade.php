@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Tambah Karyawan'])
     <div class="card shadow-lg mx-4 card-profile-bottom">
         <div class="card-body p-3">
             <div class="row gx-4">
@@ -13,10 +13,10 @@
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                            {{ auth()->user()->username ?? 'Firstname' }}
+                            {{ auth()->user()->username ?? '' }}
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
-                            Hallo {{ auth()->user()->username ?? 'Firstname' }}!
+                            Hallo {{ auth()->user()->username ?? '' }}!
                         </p>
                     </div>
                 </div>
@@ -38,8 +38,8 @@
                         @csrf
                         <div class="card-header pb-0">
                             <div class="d-flex align-items-center">
-                                <p class="mb-0">Edit Profile</p>
-                                <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
+                                <p class="mb-0">Edit Data Pengguna</p>
+                                <button type="submit" class="btn btn-primary btn-sm ms-auto">Simpan</button>
                             </div>
                         </div>
                         <div class="card-body">
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Email address</label>
+                                        <label for="example-text-input" class="form-control-label">Alamat Email</label>
                                         <input class="form-control" type="email" name="email" value="{{ old('email', auth()->user()->email) }}">
                                     </div>
                                 </div>

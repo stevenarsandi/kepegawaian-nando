@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'User Management'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Karyawan'])
     <div class="row mt-4 mx-4">
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h2>Daftar User</h2>
+                    <h2>Daftar Karyawan</h2>
                 </div>
                 <div class="col-11 mx-5 text-end">
                     <a class="btn bg-gradient-dark" href="{{ route('register') }}"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Data</a>
@@ -16,8 +16,9 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Divisi
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -28,25 +29,23 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($karyawans as $karyawan)
                                 <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
                                     <td>
-                                        <div class="d-flex px-3 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">{{ auth()->user()->username }}</h6>
-                                            </div>
-                                        </div>
+                                        <p class="text-sm font-weight-bold mb-0">{{ $karyawan->nama }}</p>
                                     </td>
                                     <td>
-                                        <p class="text-sm font-weight-bold mb-0">{{ auth()->user()->email }}</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{ $karyawan->divisi }}</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <p class="text-sm font-weight-bold mb-0">{{ auth()->user()->created_at }}</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{ $karyawan->created_at }}</p>
                                     </td>
                                     <td class="align-middle text-end">
                                         <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i
+                                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href=""><i
                                                 class="far fa-trash-alt me-2"></i>Delete</a>
-                                            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i
+                                            <a class="btn btn-link text-dark px-3 mb-0" href=""><i
                                                 class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                                         </div>
                                     </td>
