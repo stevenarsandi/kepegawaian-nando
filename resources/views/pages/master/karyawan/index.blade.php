@@ -11,6 +11,9 @@
                 <div class="col-11 mx-5 text-end">
                     <a class="btn bg-gradient-dark" href="{{ route('karyawancreate') }}"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Data</a>
                 </div>
+                <div id="alert">
+                    @include('components.alert')
+                </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
@@ -29,17 +32,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                @foreach($data as $key => $item)
                                 <tr>
-                                    <th scope="row"></th>
+                                    <th scope="row">{{ $key + 1 }}</th>
                                     <td>
-                                        <p class="text-sm font-weight-bold mb-0"></p>
+                                        <p class="text-sm font-weight-bold mb-0">{{ $item->nama }}</p>
                                     </td>
                                     <td>
-                                        <p class="text-sm font-weight-bold mb-0"></p>
+                                        <p class="text-sm font-weight-bold mb-0">{{ $item->divisi }}</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <p class="text-sm font-weight-bold mb-0"></p>
+                                        <p class="text-sm font-weight-bold mb-0">{{ $item->created_by }}</p>
                                     </td>
                                     <td class="align-middle text-end">
                                         <div class="d-flex px-3 py-1 justify-content-center align-items-center">
@@ -50,6 +53,7 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

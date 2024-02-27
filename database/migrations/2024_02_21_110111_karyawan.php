@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('karyawan', function (Blueprint $table) {
+        Schema::create('karyawans', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('pelamar_id')->nullable();
             $table->string('nama',100)->nullable();
             $table->string('divisi', 50)->nullable();
+            $table->string('jabatan', 50)->nullable();
             $table->string('jeniskelamin', 50)->nullable();
             $table->string('alamat',100)->nullable();
             $table->date('tanggallahir')->nullable();
             $table->string('notelepon',100)->nullable();
-            $table->string('ktp',100)->nullable();
+            $table->string('nik',100)->nullable();
             $table->string('email',100)->nullable();
             $table->bigInteger('created_by')->nullable();
             $table->bigInteger('updated_by')->nullable();
@@ -35,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('karyawan');
+        Schema::dropIfExists('karyawans');
     }
 };

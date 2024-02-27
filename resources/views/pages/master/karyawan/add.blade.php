@@ -2,102 +2,81 @@
 
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Tambah Karyawan'])
-    <div class="card shadow-lg mx-4 card-profile-bottom">
-        <div class="card-body p-3">
-            <div class="row gx-4">
-                <div class="col-auto">
-                    <div class="avatar avatar-xl position-relative">
-                        <img src="/img/team-1.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-                    </div>
-                </div>
-                <div class="col-auto my-auto">
-                    <div class="h-100">
-                        <h5 class="mb-1">
-                            {{ auth()->user()->username ?? '' }}
-                        </h5>
-                        <p class="mb-0 font-weight-bold text-sm">
-                            Hallo {{ auth()->user()->username ?? '' }}!
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-                    <div class="nav-wrapper position-relative end-0">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="alert">
-        @include('components.alert')
-    </div>
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form role="form" method="POST" action={{ route('profile.update') }} enctype="multipart/form-data">
+                    <form role="form" method="POST" action={{ route('karyawan.store') }} enctype="multipart/form-data">
                         @csrf
                         <div class="card-header pb-0">
-                            <div class="d-flex align-items-center">
-                                <p class="mb-0">Edit Data Pengguna</p>
-                                <button type="submit" class="btn btn-primary btn-sm ms-auto">Simpan</button>
+                            <div class="text-start">
+                                <h4>Tambah Data Karyawan</h4><hr>
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="text-uppercase text-sm">Informasi User</p>
                             <div class="row">
-                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Nama</label>
-                                        <input class="form-control" type="text" name="username" value="{{ old('username', auth()->user()->username) }}">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Nama</label>
+                                        <input class="form-control" type="text" name="nama" placeholder="Masukkan Nama Karyawan">
                                     </div>
-                                </div>
-                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <label class="ol-sm-2 col-form-label" for="divisi">Divisi</label>
+                                        <select name="divisi" id="divisi" class="form-control input-air-primary">
+                                            <option value="" selected hidden>Pilih Divisi</option>
+                                            <option value="Direktur Utama">Direktur Utama</option>
+                                            <option value="Direktur">Direktur</option>
+                                            <option value="Keuangan">Keuangan</option>
+                                            <option value="Marketing">Marketing</option>
+                                            <option value="Kepala Lapangan">Kepala Lapangan</option>
+                                            <option value="Driver">Driver</option>
+                                            <option value="Helper">Helper</option>
+                                        </select>
+                                    </div>
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Alamat Email</label>
-                                        <input class="form-control" type="email" name="email" value="{{ old('email', auth()->user()->email) }}">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Jabatan</label>
+                                        <select name="jabatan" id="jabatan" class="form-control input-air-primary">
+                                            <option value="" selected hidden>Pilih Jabatan</option>
+                                            <option value="Manager">Manager</option>
+                                            <option value="Supervisor">Supervisor</option>
+                                            <option value="Member">Member</option>
+                                        </select>
                                     </div>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                                        < <select name="jeniskelamin" id="jeniskelamin" class="form-control input-air-primary">
+                                            <option value="" selected hidden>Pilih Jenis Kelamin</option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Alamat</label>
+                                        <input class="form-control" type="text" name="alamat" placeholder="Masukkan Alamat karyawan">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                                        <input class="form-control" type="date" name="tanggallahir" placeholder="Masukkan Tanggal Lahir karyawan">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">No Telepon</label>
+                                        <input class="form-control" type="text" name="notelepon" placeholder="Masukkan Nomor Telepon karyawan" minlength="10">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">NIK</label>
+                                        <input class="form-control" type="text" name="nik" placeholder="Masukkan Nomor Induk karyawan" minlength="10">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Email</label>
+                                        <input class="form-control" type="email" name="email" placeholder="Masukkan Alamat Email karyawan">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="hidden" name="created_by" value="{{ old('id', auth()->user()->id) }}">
+                                    </div>
                             </div>
-                            <hr>
-                            <p class="text-uppercase text-sm">Informasi Kontak</p>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Alamat</label>
-                                        <input class="form-control" type="text" name="address"
-                                            value="{{ old('address', auth()->user()->address) }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Kota</label>
-                                        <input class="form-control" type="text" name="city" value="{{ old('city', auth()->user()->city) }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Negara</label>
-                                        <input class="form-control" type="text" name="country" value="{{ old('country', auth()->user()->country) }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Kode Pos</label>
-                                        <input class="form-control" type="text" name="postal" value="{{ old('postal', auth()->user()->postal) }}">
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <p class="text-uppercase text-sm">Tentang Saya</p>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Deskripsi</label>
-                                        <input class="form-control" type="text" name="about"
-                                            value="{{ old('about', auth()->user()->about) }}">
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="card-footer text-end">
+                            <button class="btn btn-light me-1" style="width: 100px;" onclick="history.back()" type="button">Tutup</button>
+                            <button class="btn btn-primary" style="width: 130px;" type="submit">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -105,4 +84,4 @@
         </div>
         @include('layouts.footers.auth.footer')
     </div>
-@endsection
+    @endsection

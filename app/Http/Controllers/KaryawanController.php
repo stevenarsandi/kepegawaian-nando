@@ -9,7 +9,8 @@ class KaryawanController extends Controller
 {
     public function index()
     {
-        return view('pages.master.karyawan.index');
+        $data = Karyawan::all();
+        return view('pages.master.karyawan.index', ['data' => $data]);
     }
     
     public function create()
@@ -19,8 +20,25 @@ class KaryawanController extends Controller
     
     public function store(Request $request)
     {
-        Karyawan::create($request->all());
-        return redirect()->route('karyawan.index');
+        $request->validate([
+            'nama' => 'required',
+        ]);
+
+        // Proses input
+        
+        Karyawan::create([
+            'nama' => $request->nama,
+            'divisi' => $request->divisi,
+            'jabatan' => $request->jabatan,
+            'jeniskelamin' => $request->jeniskelamin,
+            'alamat' => $request->alamat,
+            'tanggallahir' => $request->tanggallahir,
+            'notelepon' => $request->notelepon,
+            'nik' => $request->nik,
+            'email' => $request->email,
+            'created_by' => $request->created_by
+        ]);
+        return redirect()->route('karyawan')->with('succes', 'Data berhasil ditambahkan');
     }
     
     public function edit(Karyawan $karyawan)
