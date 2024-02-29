@@ -53,7 +53,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/karyawan', [KaryawanController::class, 'index'])->name('karyawan');
 	Route::get('/karyawancreate', [KaryawanController::class, 'create'])->name('karyawancreate');
 	Route::post('/karyawan', [KaryawanController::class, 'store'])->name('karyawan.store');
-	
+	Route::get('/karyawanedit/{id}', [KaryawanController::class, 'edit'])->name('karyawanedit');
+	Route::put('/karyawan/update/{id}', [KaryawanController::class, 'update'])->name('karyawan.update');
+	Route::delete('/karyawan/{id}', [KaryawanController::class, 'destroy'])->name('karyawan.destroy');
+
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });

@@ -9,7 +9,7 @@
                     <h2>Daftar Karyawan</h2>
                 </div>
                 <div class="col-11 mx-5 text-end">
-                    <a class="btn bg-gradient-dark" href="{{ route('karyawancreate') }}"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Data</a>
+                    <a class="btn bg-gradient-success" href="{{ route('karyawancreate') }}"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Data</a>
                 </div>
                 <div id="alert">
                     @include('components.alert')
@@ -42,14 +42,17 @@
                                         <p class="text-sm font-weight-bold mb-0">{{ $item->divisi }}</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <p class="text-sm font-weight-bold mb-0">{{ $item->created_by }}</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{ $item->created_at }}</p>
                                     </td>
                                     <td class="align-middle text-end">
                                         <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href=""><i
-                                                class="far fa-trash-alt me-2"></i>Delete</a>
-                                            <a class="btn btn-link text-dark px-3 mb-0" href=":;"><i
-                                                class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                                        <form action="{{ route('karyawan.destroy', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                        <button type="submit" class="btn btn-danger mx-1"><i class="far fa-trash-alt"></i></button>
+                                        </form>
+                                            <a class="btn btn-info text-dark px-3" href="{{ route('karyawanedit', ['id' => $item->id]) }}"><i
+                                                class="fas fa-pencil-alt text-dark" aria-hidden="true"></i></a>
                                         </div>
                                     </td>
                                 </tr>

@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form role="form" method="POST" action={{ route('karyawan.store') }} enctype="multipart/form-data">
+                    <form role="form" method="POST" action="{{ route('karyawan.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header pb-0">
                             <div class="text-start">
@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Jenis Kelamin</label>
-                                        < <select name="jeniskelamin" id="jeniskelamin" class="form-control input-air-primary">
+                                        <select name="jeniskelamin" id="jeniskelamin" class="form-control input-air-primary">
                                             <option value="" selected hidden>Pilih Jenis Kelamin</option>
                                             <option value="Laki-Laki">Laki-Laki</option>
                                             <option value="Perempuan">Perempuan</option>
@@ -70,7 +70,7 @@
                                         <input class="form-control" type="email" name="email" placeholder="Masukkan Alamat Email karyawan">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="hidden" name="created_by" value="{{ old('id', auth()->user()->id) }}">
+                                        <input class="form-control" type="hidden" name="created_by" value="{{ old('id', auth()->user()->username) }}">
                                     </div>
                             </div>
                         </div>
