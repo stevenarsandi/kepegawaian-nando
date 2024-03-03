@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Karyawan'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'User'])
     <div class="row mt-4 mx-4">
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h2>Daftar Karyawan</h2>
+                    <h2>Daftar User</h2>
                 </div>
                 <div class="col-11 mx-5 text-end">
-                    <a class="btn bg-gradient-success" href="{{ route('karyawancreate') }}"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Data</a>
+                    <a class="btn bg-gradient-success" href="{{ route('usercreate') }}"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Data</a>
                 </div>
                 <div id="alert">
                     @include('components.alert')
@@ -21,7 +21,7 @@
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Divisi
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Role
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -36,10 +36,10 @@
                                 <tr>
                                     <th scope="row">{{ $key + 1 }}</th>
                                     <td>
-                                        <p class="text-sm font-weight-bold mb-0">{{ $item->nama }}</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{ $item->username }}</p>
                                     </td>
                                     <td>
-                                        <p class="text-sm font-weight-bold mb-0">{{ $item->divisi }}</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{ $item->role }}</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
                                         <p class="text-sm font-weight-bold mb-0">{{ $item->created_at }}</p>
@@ -48,7 +48,7 @@
                                         <div class="d-flex px-3 py-1 justify-content-center align-items-center">
                                         <button type="submit" class="btn btn-danger mx-1 btn-delete" data-toggle="modal" data-target="#deleteModal" data-id="{{ $item->id }}"><i
                                                 class="far fa-trash-alt" aria-hidden="true"></i></button>
-                                            <a class="btn btn-info text-dark px-3" href="{{ route('karyawanedit', ['id' => $item->id]) }}"><i
+                                            <a class="btn btn-info text-dark px-3" href="{{ route('useredit', ['id' => $item->id]) }}"><i
                                                 class="fas fa-pencil-alt text-dark" aria-hidden="true"></i></a>
                                         </div>
                                     </td>
@@ -89,7 +89,7 @@
     $(document).ready(function () {
         $('.btn-delete').click(function () {
             var postId = $(this).data('id');
-            $('#deleteForm').attr('action', '/karyawan/' + postId);
+            $('#deleteForm').attr('action', '/user/' + postId);
             $('#deleteModal').modal('show');
         });
     });

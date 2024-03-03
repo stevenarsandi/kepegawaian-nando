@@ -6,26 +6,6 @@
             <div class="card z-index-2 h-100">
                     <div class="card-header pb-0 pt-3 bg-transparent">
                         <h6 class="text-capitalize">Selamat Datang di PT.Musi Energi Sukses Indah</h6>
-                        <pre>
-                            SAJAK PUTIH
-
-                            Bersandar pada tari warna pelangi
-                            Kau depanku bertudung sutra senja
-                            Di hitam matamu kembang mawar dan melati
-                            Harum rambutmu mengalun bergelut senda
-
-                            Sepi menyanyi, malam dalam mendoa tiba
-                            Meriak muka air kolam jiwa
-                            Dan dalam dadaku memerdu lagu
-                            Menarik menari seluruh aku
-
-                            Hidup dari hidupku, pintu terbuka
-                            Selama matamu bagiku menengadah
-                            Selama kau darah mengalir dari luka
-                            Antara kita Mati datang tidak membelah...
-
-                                            Karya: Chairil Anwar
-                        </pre>
                     </div>
             </div>
         @include('layouts.footers.auth.footer')

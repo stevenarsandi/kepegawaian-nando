@@ -28,6 +28,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;            
 use App\Http\Controllers\KaryawanController;            
+use App\Http\Controllers\UserController;            
             
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
@@ -56,6 +57,13 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/karyawanedit/{id}', [KaryawanController::class, 'edit'])->name('karyawanedit');
 	Route::put('/karyawan/update/{id}', [KaryawanController::class, 'update'])->name('karyawan.update');
 	Route::delete('/karyawan/{id}', [KaryawanController::class, 'destroy'])->name('karyawan.destroy');
+
+	Route::get('/user', [UserController::class, 'index'])->name('user');
+	Route::get('/usercreate', [UserController::class, 'create'])->name('usercreate');
+	Route::post('/user', [UserController::class, 'store'])->name('user.store');
+	Route::get('/useredit/{id}', [UserController::class, 'edit'])->name('useredit');
+	Route::put('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
+	Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
