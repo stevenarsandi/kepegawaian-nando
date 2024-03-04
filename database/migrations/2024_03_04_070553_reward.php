@@ -11,22 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('karyawans', function (Blueprint $table) {
+        Schema::create('rewards', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('pelamar_id')->nullable();
+            $table->bigInteger('karyawan_id')->nullable();
             $table->string('nama',100)->nullable();
             $table->string('divisi', 50)->nullable();
             $table->string('jabatan', 50)->nullable();
-            $table->string('jeniskelamin', 50)->nullable();
-            $table->string('alamat',100)->nullable();
-            $table->date('tanggallahir')->nullable();
-            $table->string('notelepon',100)->nullable();
-            $table->string('nik',100)->nullable();
-            $table->string('email',100)->nullable();
+            $table->string('reward',100)->nullable();
+            $table->date('tanggal');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes();  
         });
     }
 
@@ -35,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('karyawans');
+        Schema::dropIfExists('rewards');
     }
 };

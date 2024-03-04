@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('karyawans', function (Blueprint $table) {
+        Schema::create('pelamars', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('pelamar_id')->nullable();
             $table->string('nama',100)->nullable();
             $table->string('divisi', 50)->nullable();
             $table->string('jabatan', 50)->nullable();
@@ -23,11 +22,12 @@ return new class extends Migration
             $table->string('notelepon',100)->nullable();
             $table->string('nik',100)->nullable();
             $table->string('email',100)->nullable();
+            $table->string('file',100)->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();
-            $table->softDeletes();
-        });
+            $table->softDeletes();  
+        }); 
     }
 
     /**
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('karyawans');
+        Schema::dropIfExists('pelamars');
     }
 };

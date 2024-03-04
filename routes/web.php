@@ -29,6 +29,7 @@ use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;            
 use App\Http\Controllers\KaryawanController;            
 use App\Http\Controllers\UserController;            
+use App\Http\Controllers\IzinController;            
             
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
@@ -64,6 +65,13 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/useredit/{id}', [UserController::class, 'edit'])->name('useredit');
 	Route::put('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
 	Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+	
+	Route::get('/izin', [IzinController::class, 'index'])->name('izin');
+	Route::get('/izincreate', [IzinController::class, 'create'])->name('izincreate');
+	Route::post('/izin', [IzinController::class, 'store'])->name('izin.store');
+	Route::get('/izinedit/{id}', [IzinController::class, 'edit'])->name('izinedit');
+	Route::put('/izin/update/{id}', [IzinController::class, 'update'])->name('izin.update');
+	Route::delete('/izin/{id}', [IzinController::class, 'destroy'])->name('izin.destroy');
 
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');

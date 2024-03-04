@@ -17,21 +17,13 @@ class UserProfileController extends Controller
         $attributes = $request->validate([
             'username' => ['required','max:255', 'min:2'],
             'email' => ['required', 'email', 'max:255',  Rule::unique('users')->ignore(auth()->user()->id),],
-            'address' => ['max:100'],
-            'city' => ['max:100'],
-            'country' => ['max:100'],
-            'postal' => ['max:100'],
-            'about' => ['max:255']
+            'password' => ['max:100'],
         ]);
 
         auth()->user()->update([
             'username' => $request->get('username'),
             'email' => $request->get('email') ,
-            'address' => $request->get('address'),
-            'city' => $request->get('city'),
-            'country' => $request->get('country'),
-            'postal' => $request->get('postal'),
-            'about' => $request->get('about')
+            'password' => $request->get('password'),
         ]);
         return back()->with('succes', 'Data Berhasil Di Update!');
     }

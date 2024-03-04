@@ -49,7 +49,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'karyawan') == true ? 'active' : '' }}" href="{{ url('/karyawan') }}">
                     <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user-plus text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Karyawan</span>
@@ -58,7 +58,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'izin') == true ? 'active' : '' }}" href="{{ url('/izin') }}">
                     <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
                         <i class="fa fa-file-text text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Izin</span>
@@ -67,12 +67,48 @@
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'cuti') == true ? 'active' : '' }}" href="{{ url('/cuti') }}">
                     <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
                         <i class="fa fa-file-text text-dark text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Cuti</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'pelamar') == true ? 'active' : '' }}" href="{{ url('/pelamar') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-id-card text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Pelamar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'sanksi') == true ? 'active' : '' }}" href="{{ url('/sanksi') }}">
+                    <div
+                    class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+                    <i class="fa fa-warning text-dark text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Sanksi</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ str_contains(request()->url(), 'reward') == true ? 'active' : '' }}" href="{{ url('/reward') }}">
+                <div
+                class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+                <i class="fa fa-money text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Reward</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{ str_contains(request()->url(), 'resign') == true ? 'active' : '' }}" href="{{ url('/resign') }}">
+            <div
+                class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+                <i class="fa fa-user-times text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Resign</span>
+        </a>
+    </li>
         </ul>
     </div>
     
