@@ -28,8 +28,10 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;            
 use App\Http\Controllers\KaryawanController;            
+use App\Http\Controllers\PelamarController;            
 use App\Http\Controllers\UserController;            
 use App\Http\Controllers\IzinController;            
+use App\Http\Controllers\CutiController;            
             
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
@@ -58,6 +60,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/karyawanedit/{id}', [KaryawanController::class, 'edit'])->name('karyawanedit');
 	Route::put('/karyawan/update/{id}', [KaryawanController::class, 'update'])->name('karyawan.update');
 	Route::delete('/karyawan/{id}', [KaryawanController::class, 'destroy'])->name('karyawan.destroy');
+	
+	Route::get('/pelamar', [PelamarController::class, 'index'])->name('pelamar');
+	Route::get('/pelamarcreate', [PelamarController::class, 'create'])->name('pelamarcreate');
+	Route::post('/pelamar', [PelamarController::class, 'store'])->name('pelamar.store');
+	Route::get('/pelamaredit/{id}', [PelamarController::class, 'edit'])->name('pelamaredit');
+	Route::put('/pelamar/update/{id}', [PelamarController::class, 'update'])->name('pelamar.update');
+	Route::delete('/pelamar/{id}', [PelamarController::class, 'destroy'])->name('pelamar.destroy');
+	Route::get("/download/{id}", [PelamarController::class, "download"]);
 
 	Route::get('/user', [UserController::class, 'index'])->name('user');
 	Route::get('/usercreate', [UserController::class, 'create'])->name('usercreate');
@@ -72,6 +82,15 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/izinedit/{id}', [IzinController::class, 'edit'])->name('izinedit');
 	Route::put('/izin/update/{id}', [IzinController::class, 'update'])->name('izin.update');
 	Route::delete('/izin/{id}', [IzinController::class, 'destroy'])->name('izin.destroy');
+	Route::get('izin/getdata/{id}', [IzinController::class, 'getdata']);
+
+	Route::get('/cuti', [CutiController::class, 'index'])->name('cuti');
+	Route::get('/cuticreate', [CutiController::class, 'create'])->name('cuticreate');
+	Route::post('/cuti', [CutiController::class, 'store'])->name('cuti.store');
+	Route::get('/cutiedit/{id}', [CutiController::class, 'edit'])->name('cutiedit');
+	Route::put('/cuti/update/{id}', [CutiController::class, 'update'])->name('cuti.update');
+	Route::delete('/cuti/{id}', [CutiController::class, 'destroy'])->name('cuti.destroy');
+	Route::get('cuti/getdata/{id}', [CutiController::class, 'getdata']);
 
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');

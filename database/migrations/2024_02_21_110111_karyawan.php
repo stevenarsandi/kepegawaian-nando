@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('notelepon',100)->nullable();
             $table->string('nik',100)->nullable();
             $table->string('email',100)->nullable();
+            $table->string('status',50)->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();

@@ -34,6 +34,7 @@ class KaryawanController extends Controller
             'notelepon' => $request->notelepon,
             'nik' => $request->nik,
             'email' => $request->email,
+            'status' => $request->status,
             'created_by' => $request->created_by
         ]);
         return redirect()->route('karyawan')->with('succes', 'Data berhasil ditambahkan!');
@@ -63,6 +64,7 @@ class KaryawanController extends Controller
             'notelepon' => $request->notelepon,
             'nik' => $request->nik,
             'email' => $request->email,
+            'status' => $request->status,
             'updated_by' => $request->updated_by
         ]);
         return redirect()->route('karyawan')->with('succes', 'Data berhasil di Ubah!');

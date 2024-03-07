@@ -71,6 +71,14 @@
                                         <input class="form-control" type="email" name="email" placeholder="Masukkan Alamat Email karyawan" value="{{ $karyawan->email }}">
                                     </div>
                                     <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Status</label>
+                                        <select name="status" id="status" class="form-control input-air-primary">
+                                            <option value="{{ $karyawan->status }}" selected hidden>Pilih Status Karyawan</option>
+                                            <option value="Pegawai Tetap" {{ $karyawan->status === 'Pegawai Tetap' ? 'selected' : '' }}>Pegawai Tetap</option>
+                                            <option value="Training" {{ $karyawan->status === 'Training' ? 'selected' : '' }}>Training</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <input class="form-control" type="hidden" name="updated_by" value="{{ old('id', auth()->user()->username) }}">
                                     </div>
                             </div>
