@@ -32,6 +32,7 @@ use App\Http\Controllers\PelamarController;
 use App\Http\Controllers\UserController;            
 use App\Http\Controllers\IzinController;            
 use App\Http\Controllers\CutiController;            
+use App\Http\Controllers\SanksiController;            
             
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
@@ -67,8 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/pelamaredit/{id}', [PelamarController::class, 'edit'])->name('pelamaredit');
 	Route::put('/pelamar/update/{id}', [PelamarController::class, 'update'])->name('pelamar.update');
 	Route::delete('/pelamar/{id}', [PelamarController::class, 'destroy'])->name('pelamar.destroy');
-	Route::get("/download/{id}", [PelamarController::class, "download"]);
-
+	
 	Route::get('/user', [UserController::class, 'index'])->name('user');
 	Route::get('/usercreate', [UserController::class, 'create'])->name('usercreate');
 	Route::post('/user', [UserController::class, 'store'])->name('user.store');
@@ -83,7 +83,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('/izin/update/{id}', [IzinController::class, 'update'])->name('izin.update');
 	Route::delete('/izin/{id}', [IzinController::class, 'destroy'])->name('izin.destroy');
 	Route::get('izin/getdata/{id}', [IzinController::class, 'getdata']);
-
+	
 	Route::get('/cuti', [CutiController::class, 'index'])->name('cuti');
 	Route::get('/cuticreate', [CutiController::class, 'create'])->name('cuticreate');
 	Route::post('/cuti', [CutiController::class, 'store'])->name('cuti.store');
@@ -91,6 +91,13 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('/cuti/update/{id}', [CutiController::class, 'update'])->name('cuti.update');
 	Route::delete('/cuti/{id}', [CutiController::class, 'destroy'])->name('cuti.destroy');
 	Route::get('cuti/getdata/{id}', [CutiController::class, 'getdata']);
+	
+	Route::get('/sanksi', [SanksiController::class, 'index'])->name('sanksi');
+	Route::get('/sanksicreate', [SanksiController::class, 'create'])->name('sanksicreate');
+	Route::post('/sanksi', [SanksiController::class, 'store'])->name('sanksi.store');
+	Route::get('/sanksiedit/{id}', [SanksiController::class, 'edit'])->name('sanksiedit');
+	Route::put('/sanksi/update/{id}', [SanksiController::class, 'update'])->name('sanksi.update');
+	Route::delete('/sanksi/{id}', [SanksiController::class, 'destroy'])->name('sanksi.destroy');
 
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
