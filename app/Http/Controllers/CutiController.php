@@ -27,7 +27,7 @@ class CutiController extends Controller
         ]);
         
         Cuti::create([
-            'karyawan_id' => $request->karyawan_id,
+            // 'karyawan_id' => $request->karyawan_id,
             'nama' => $request->nama,
             'divisi' => $request->divisi,
             'jabatan' => $request->jabatan,
@@ -73,9 +73,9 @@ class CutiController extends Controller
         return redirect()->route('cuti')->with('succes', 'Data berhasil di Hapus!');
     }
 
-    public function getdata($id)
-    {
-        $data = Karyawan::find($id);
-        return response()->json($data);
-    }
+    // public function getdata($id)
+    // {
+    //     $data = Karyawan::find($id);
+    //     return response()->json($data);
+    // }
 }

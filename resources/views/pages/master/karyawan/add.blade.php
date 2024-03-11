@@ -75,6 +75,7 @@
                                             <option value="" selected hidden>Pilih Status Karyawan</option>
                                             <option value="Pegawai Tetap">Pegawai Tetap</option>
                                             <option value="Training">Training</option>
+                                            <option value="Berhenti">Berhenti</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

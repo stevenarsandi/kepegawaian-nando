@@ -76,6 +76,7 @@
                                             <option value="{{ $karyawan->status }}" selected hidden>Pilih Status Karyawan</option>
                                             <option value="Pegawai Tetap" {{ $karyawan->status === 'Pegawai Tetap' ? 'selected' : '' }}>Pegawai Tetap</option>
                                             <option value="Training" {{ $karyawan->status === 'Training' ? 'selected' : '' }}>Training</option>
+                                            <option value="Berhenti" {{ $karyawan->status === 'Berhenti' ? 'selected' : '' }}>Berhenti</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

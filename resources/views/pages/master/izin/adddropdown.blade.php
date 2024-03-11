@@ -16,9 +16,15 @@
                         <div class="card-body">
                             <div class="row">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Nama</label>
-                                        <input class="form-control" type="text" name="nama" placeholder="Masukkan Nama Karyawan">
+                                        <label class="form-label" for="select-input-karyawan_id">Nama</label>
+                                        <select name="karyawan_id" id="karyawan_id" class="form-control input-air-primary">
+                                            <option value="">Pilih Nama Karyawan</option>
+                                            @foreach($karyawan as $karyawan)
+                                                <option value="{{ $karyawan->id }}">{{ $karyawan->nama }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
+                                    <input class="form-control" type="hidden" id="nama" name="nama" placeholder="Masukkan Nama Karyawan">
                                     <div class="mb-4">
                                         <label class="ol-sm-2 col-form-label" for="divisi">Divisi</label>
                                         <select name="divisi" id="divisi" class="form-control input-air-primary">
@@ -47,7 +53,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal</label>
-                                        <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal Izin" required>
+                                        <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal Izin">
                                     </div>
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Lama Hari / Jam</label>
@@ -69,3 +75,41 @@
         @include('layouts.footers.auth.footer')
     </div>
     @endsection
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#karyawan_id').change(function() {
+                var id = $(this).val();
+                if (id) {
+                    // Kirim permintaan Ajax ke endpoint yang tepat
+                    $.ajax({
+                        url: "izin/getdata/" + id + "/",
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(karyawan) {
+                            $('#nama').val(karyawan.nama);
+                            if (karyawan.divisi) {
+                                var divisiDropdown = '<option value="' + karyawan.divisi + '">' + karyawan.divisi + '</option>';
+                                $('#divisi').html(divisiDropdown);
+                            } else {
+                                $('#divisi').empty(); // Mengosongkan dropdown divisi jika tidak ada data divisi
+                            }
+                            if (karyawan.jabatan) {
+                                    var jabatanDropdown = '<option value="' + karyawan.jabatan + '">' + karyawan.jabatan + '</option>';
+                                    $('#jabatan').html(jabatanDropdown);
+                                } else {
+                                    $('#jabatan').empty(); // Mengosongkan dropdown jabatan jika tidak ada data jabatan
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(xhr.responseText);
+                        }
+                    });
+                } else {
+                    $('#nama').val(''); 
+                    $('#divisi').val(''); 
+                    $('#jabatan').val(''); 
+                }
+            });
+        });
+    </script>
