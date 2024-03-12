@@ -9,5 +9,5 @@ class Sanksi extends Model
 {
     use HasFactory;
     protected $table = "sanksis";
-    protected $fillable = ['id', 'karyawan_id', 'nama', 'divisi', 'jabatan', 'sanksi', 'keterangan', 'tanggal', 'created_by', 'updated_by'];
+    protected $fillable = ['id', 'nama', 'divisi', 'jabatan', 'sanksi', 'keterangan', 'tanggal', 'created_by', 'updated_by'];
 }

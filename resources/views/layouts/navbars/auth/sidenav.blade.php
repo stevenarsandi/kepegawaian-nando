@@ -56,6 +56,15 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ str_contains(request()->url(), 'absensi') == true ? 'active' : '' }}" href="{{ url('/absensi') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-address-book-o text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Absensi</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'izin') == true ? 'active' : '' }}" href="{{ url('/izin') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
@@ -101,12 +110,21 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link {{ str_contains(request()->url(), 'resign') == true ? 'active' : '' }}" href="{{ url('/resign') }}">
+        <a class="nav-link {{ str_contains(request()->url(), 'phk') == true ? 'active' : '' }}" href="{{ url('/phk') }}">
             <div
                 class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
                 <i class="fa fa-user-times text-dark text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Resign</span>
+            <span class="nav-link-text ms-1">PHK</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{ str_contains(request()->url(), 'penugasan') == true ? 'active' : '' }}" href="{{ url('/penugasan') }}">
+            <div
+                class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+                <i class="fa fa-truck text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Penugasan</span>
         </a>
     </li>
         </ul>

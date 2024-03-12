@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal</label>
-                                        <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal Sanksi">
+                                        <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal Sanksi" required>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" type="hidden" name="created_by" value="{{ old('id', auth()->user()->username) }}">

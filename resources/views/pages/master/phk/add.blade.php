@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form role="form" method="POST" action="{{ route('cuti.store') }}" enctype="multipart/form-data">
+                    <form role="form" method="POST" action="{{ route('phk.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header pb-0">
                             <div class="text-start">
@@ -42,16 +42,21 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Jenis PHK</label>
+                                        <select name="jenis" id="jenis" class="form-control input-air-primary">
+                                            <option value="" selected hidden>Pilih Jenis PHK</option>
+                                            <option value="Diberhentikan">Diberhentikan</option>
+                                            <option value="Resign">Resign</option>
+                                            <option value="Meninggal">Meninggal</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Keterangan</label>
-                                        <input class="form-control" type="text" name="keterangan" placeholder="Masukkan Keterangan Cuti">
+                                        <input class="form-control" type="text" name="keterangan" placeholder="Masukkan Keterangan PHK">
                                     </div>
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal</label>
-                                        <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal Cuti" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Jumlah Hari Cuti</label>
-                                        <input class="form-control" type="text" name="lama" placeholder="Masukkan Jumlah Hari Cuti">
+                                        <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal PHK" required>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" type="hidden" name="created_by" value="{{ old('id', auth()->user()->username) }}">

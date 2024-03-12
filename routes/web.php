@@ -33,6 +33,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\IzinController;            
 use App\Http\Controllers\CutiController;            
 use App\Http\Controllers\SanksiController;            
+use App\Http\Controllers\RewardController;            
+use App\Http\Controllers\PhkController;            
             
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
@@ -98,6 +100,20 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/sanksiedit/{id}', [SanksiController::class, 'edit'])->name('sanksiedit');
 	Route::put('/sanksi/update/{id}', [SanksiController::class, 'update'])->name('sanksi.update');
 	Route::delete('/sanksi/{id}', [SanksiController::class, 'destroy'])->name('sanksi.destroy');
+
+	Route::get('/reward', [RewardController::class, 'index'])->name('reward');
+	Route::get('/rewardcreate', [RewardController::class, 'create'])->name('rewardcreate');
+	Route::post('/reward', [RewardController::class, 'store'])->name('reward.store');
+	Route::get('/rewardedit/{id}', [RewardController::class, 'edit'])->name('rewardedit');
+	Route::put('/reward/update/{id}', [RewardController::class, 'update'])->name('reward.update');
+	Route::delete('/reward/{id}', [RewardController::class, 'destroy'])->name('reward.destroy');
+
+	Route::get('/phk', [PhkController::class, 'index'])->name('phk');
+	Route::get('/phkcreate', [PhkController::class, 'create'])->name('phkcreate');
+	Route::post('/phk', [PhkController::class, 'store'])->name('phk.store');
+	Route::get('/phkedit/{id}', [PhkController::class, 'edit'])->name('phkedit');
+	Route::put('/phk/update/{id}', [PhkController::class, 'update'])->name('phk.update');
+	Route::delete('/phk/{id}', [PhkController::class, 'destroy'])->name('phk.destroy');
 
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');

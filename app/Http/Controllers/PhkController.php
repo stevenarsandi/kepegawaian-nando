@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Reward;
+use App\Models\Phk;
 
-class RewardController extends Controller
+class PhkController extends Controller
 {
     public function index()
     {
-        $data = Reward::all();
-        return view('pages.master.reward.index', ['data' => $data]);
+        $data = Phk::all();
+        return view('pages.master.phk.index', ['data' => $data]);
     }
     
     public function create()
     {
-        return view('pages.master.reward.add');
+        return view('pages.master.phk.add');
     }
     
     public function store(Request $request)
@@ -24,46 +24,48 @@ class RewardController extends Controller
             'nama' => 'required',
         ]);
         
-        Reward::create([
+        Phk::create([
             'nama' => $request->nama,
             'divisi' => $request->divisi,
             'jabatan' => $request->jabatan,
-            'reward' => $request->reward,
+            'jenis' => $request->jenis,
+            'keterangan' => $request->keterangan,
             'tanggal' => $request->tanggal,
             'created_by' => $request->created_by
         ]);
-        return redirect()->route('reward')->with('succes', 'Data berhasil ditambahkan!');
+        return redirect()->route('phk')->with('succes', 'Data berhasil ditambahkan!');
     }
     
     public function edit($id)
     {
-        $reward = Reward::findOrFail($id);
-        return view('pages.master.reward.edit', compact('reward'));
+        $phk = Phk::findOrFail($id);
+        return view('pages.master.phk.edit', compact('phk'));
     }
     
     public function update(Request $request, $id)
     {
-        $reward = Reward::findOrFail($id);
+        $phk = Phk::findOrFail($id);
 
         $request->validate([
             'nama' => 'required',
         ]);
         
-        $reward->update([
+        $phk->update([
             'nama' => $request->nama,
             'divisi' => $request->divisi,
             'jabatan' => $request->jabatan,
-            'reward' => $request->reward,
+            'jenis' => $request->jenis,
+            'keterangan' => $request->keterangan,
             'tanggal' => $request->tanggal,
             'updated_by' => $request->updated_by
         ]);
-        return redirect()->route('reward')->with('succes', 'Data berhasil di Ubah!');
+        return redirect()->route('phk')->with('succes', 'Data berhasil di Ubah!');
     }
     
     public function destroy($id)
     {
-        $reward = Reward::findOrFail($id);
-        $reward->delete();
-        return redirect()->route('reward')->with('succes', 'Data berhasil di Hapus!');
+        $phk = Phk::findOrFail($id);
+        $phk->delete();
+        return redirect()->route('phk')->with('succes', 'Data berhasil di Hapus!');
     }
 }

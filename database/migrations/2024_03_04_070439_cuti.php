@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cutis', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('karyawan_id')->nullable();
+            // $table->bigInteger('karyawan_id')->nullable();
             $table->string('nama',100)->nullable();
             $table->string('divisi', 50)->nullable();
             $table->string('jabatan', 50)->nullable();

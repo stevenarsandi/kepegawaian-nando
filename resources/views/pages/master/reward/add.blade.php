@@ -1,16 +1,16 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Tambah PHK'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Tambah Reward'])
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form role="form" method="POST" action="{{ route('cuti.store') }}" enctype="multipart/form-data">
+                    <form role="form" method="POST" action="{{ route('reward.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header pb-0">
                             <div class="text-start">
-                                <h4>Tambah Data PHK</h4><hr>
+                                <h4>Tambah Data Reward</h4><hr>
                             </div>
                         </div>
                         <div class="card-body">
@@ -42,16 +42,12 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Keterangan</label>
-                                        <input class="form-control" type="text" name="keterangan" placeholder="Masukkan Keterangan Cuti">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Reward</label>
+                                        <input class="form-control" type="text" name="reward" placeholder="Masukkan Reward Yang Didapat" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal</label>
-                                        <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal Cuti" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Jumlah Hari Cuti</label>
-                                        <input class="form-control" type="text" name="lama" placeholder="Masukkan Jumlah Hari Cuti">
+                                        <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal Reward" required>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" type="hidden" name="created_by" value="{{ old('id', auth()->user()->username) }}">
