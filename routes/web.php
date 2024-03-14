@@ -35,7 +35,8 @@ use App\Http\Controllers\CutiController;
 use App\Http\Controllers\SanksiController;            
 use App\Http\Controllers\RewardController;            
 use App\Http\Controllers\PhkController;            
-            
+use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\PenugasanController;
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
@@ -114,6 +115,16 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/phkedit/{id}', [PhkController::class, 'edit'])->name('phkedit');
 	Route::put('/phk/update/{id}', [PhkController::class, 'update'])->name('phk.update');
 	Route::delete('/phk/{id}', [PhkController::class, 'destroy'])->name('phk.destroy');
+
+	Route::get('/penugasan', [PenugasanController::class, 'index'])->name('penugasan');
+	Route::get('/penugasancreate', [PenugasanController::class, 'create'])->name('penugasancreate');
+	Route::post('/penugasan', [PenugasanController::class, 'store'])->name('penugasan.store');
+	Route::get('/penugasanedit/{id}', [PenugasanController::class, 'edit'])->name('penugasanedit');
+	Route::put('/penugasan/update/{id}', [PenugasanController::class, 'update'])->name('penugasan.update');
+	Route::delete('/penugasan/{id}', [PenugasanController::class, 'destroy'])->name('penugasan.destroy');
+
+	Route::get('/absen', [AbsenController::class, 'index'])->name('absen');
+	Route::get('/absenimport', [AbsenController::class, 'import'])->name('absenimport');
 
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');

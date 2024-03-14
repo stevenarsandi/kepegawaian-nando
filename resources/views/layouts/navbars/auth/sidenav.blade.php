@@ -56,7 +56,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'absensi') == true ? 'active' : '' }}" href="{{ url('/absensi') }}">
+                <a class="nav-link {{ str_contains(request()->url(), 'absen') == true ? 'active' : '' }}" href="{{ url('/absen') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
                         <i class="fa fa-address-book-o text-dark text-sm opacity-10"></i>

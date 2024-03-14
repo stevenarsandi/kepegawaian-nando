@@ -48,11 +48,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal</label>
-                                        <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal Cuti" value="{{ $cuti->tanggal }}">
+                                        <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal Cuti" value="{{ $cuti->tanggal }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Jumlah Hari</label>
-                                        <input class="form-control" type="text" name="lama" placeholder="Masukkan Jumlah Hari Cuti" minlength="10" value="{{ $cuti->lama }}">
+                                        <input class="form-control" type="text" name="lama" placeholder="Masukkan Jumlah Hari Cuti" value="{{ $cuti->lama }}">
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" type="hidden" name="updated_by" value="{{ old('id', auth()->user()->username) }}">

@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Lama Hari / Jam</label>
-                                        <input class="form-control" type="text" name="lama" placeholder="Masukkan Jumlah Hari atau Jam Izin" minlength="10" value="{{ $izin->lama }}">
+                                        <input class="form-control" type="text" name="lama" placeholder="Masukkan Jumlah Hari atau Jam Izin" value="{{ $izin->lama }}">
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" type="hidden" name="updated_by" value="{{ old('id', auth()->user()->username) }}">
