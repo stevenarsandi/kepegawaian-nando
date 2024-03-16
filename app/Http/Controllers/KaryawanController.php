@@ -10,6 +10,7 @@ class KaryawanController extends Controller
     public function index()
     {
         $data = Karyawan::all();
+        $data = Karyawan::simplePaginate(5);
         return view('pages.master.karyawan.index', ['data' => $data]);
     }
     
