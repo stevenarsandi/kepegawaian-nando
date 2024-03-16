@@ -10,6 +10,7 @@ class PelamarController extends Controller
     public function index()
     {
         $data = Pelamar::all();
+        $data = Pelamar::simplePaginate(5);
         return view('pages.master.pelamar.index', ['data' => $data]);
     }
     

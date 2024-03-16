@@ -10,6 +10,7 @@ class RewardController extends Controller
     public function index()
     {
         $data = Reward::all();
+        $data = Reward::simplePaginate(5);
         return view('pages.master.reward.index', ['data' => $data]);
     }
     

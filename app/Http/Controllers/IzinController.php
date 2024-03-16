@@ -11,6 +11,7 @@ class IzinController extends Controller
     public function index()
     {
         $data = Izin::all();
+        $data = Izin::simplePaginate(5);
         return view('pages.master.izin.index', ['data' => $data]);
     }
 

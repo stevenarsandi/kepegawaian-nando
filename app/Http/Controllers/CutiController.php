@@ -11,6 +11,7 @@ class CutiController extends Controller
     public function index()
     {
         $data = Cuti::all();
+        $data = Cuti::simplePaginate(5);
         return view('pages.master.cuti.index', ['data' => $data]);
     }
 

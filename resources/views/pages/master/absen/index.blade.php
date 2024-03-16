@@ -52,6 +52,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="text-end">
+                        {{ $data->links() }}
+                    </div>
                 </div>
             </div>
         </div>

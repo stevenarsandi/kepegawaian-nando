@@ -10,6 +10,7 @@ class PhkController extends Controller
     public function index()
     {
         $data = Phk::all();
+        $data = Phk::simplePaginate(5);
         return view('pages.master.phk.index', ['data' => $data]);
     }
     

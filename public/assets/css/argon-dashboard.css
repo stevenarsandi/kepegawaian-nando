@@ -491,7 +491,7 @@ summary {
   background-color: #f5f5f5;
   border: 1px solid #ccc;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 
 .pagination a:hover {

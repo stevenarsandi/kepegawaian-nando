@@ -10,6 +10,7 @@ class UserController extends Controller
     public function index()
     {
         $data = User::all();
+        $data = User::simplePaginate(5);
         return view('pages.master.user.index', ['data' => $data]);
     }
     

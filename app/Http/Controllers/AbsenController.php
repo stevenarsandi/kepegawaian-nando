@@ -11,6 +11,7 @@ class AbsenController extends Controller
     public function index()
     {
         $data = Absen::all();
+        $data = Absen::simplePaginate(5);
         return view('pages.master.absen.index', ['data' => $data]);
     }
 

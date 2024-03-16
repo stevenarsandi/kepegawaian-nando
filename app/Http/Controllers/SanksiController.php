@@ -10,6 +10,7 @@ class SanksiController extends Controller
     public function index()
     {
         $data = Sanksi::all();
+        $data = Sanksi::simplePaginate(5);
         return view('pages.master.sanksi.index', ['data' => $data]);
     }
     

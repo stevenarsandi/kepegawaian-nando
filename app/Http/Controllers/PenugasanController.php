@@ -10,6 +10,7 @@ class PenugasanController extends Controller
     public function index()
     {
         $data = Penugasan::all();
+        $data = Penugasan::simplePaginate(5);
         return view('pages.master.penugasan.index', ['data' => $data]);
     }
     
