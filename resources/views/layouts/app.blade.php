@@ -10,7 +10,7 @@
         PT. Musi Energi Sukses Indah
     </title>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="{{ url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700')}}" rel="stylesheet" />
     <!-- Nucleo Icons -->
     <link href="{{ url('./assets/css/nucleo-icons.css') }}" rel="stylesheet" />
     <link href=" {{ url('./assets/css/nucleo-svg.css') }} " rel="stylesheet" />
@@ -47,10 +47,10 @@
     @endauth
 
     <!--   Core JS Files   -->
-    <script src="assets/js/core/popper.min.js"></script>
-    <script src="assets/js/core/bootstrap.min.js"></script>
-    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="{{ url('assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ url('assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ url('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ url('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
