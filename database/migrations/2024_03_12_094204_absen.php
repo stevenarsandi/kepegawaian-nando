@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
             $table->string('nama',100)->nullable();
-            $table->string('checkin', 50)->nullable();
-            $table->string('checkout', 50)->nullable();
+            $table->string('status', 50)->nullable();
+            $table->string('jam', 50)->nullable();
             $table->date('tanggal');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();

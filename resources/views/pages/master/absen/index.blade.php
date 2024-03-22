@@ -9,7 +9,7 @@
                     <h2>Daftar Absensi</h2>
                 </div>
                 <div class="col-11 mx-5 text-end">
-                    <a class="btn bg-gradient-success" href="{{ route('absenimport') }}"><i class="fas fa-plus"></i>&nbsp;&nbsp;Import Data</a>
+                    <a class="btn bg-gradient-success" href="{{ route('absencreate') }}"><i class="fas fa-plus"></i>&nbsp;&nbsp;Absen</a>
                 </div>
                 <div id="alert">
                     @include('components.alert')
@@ -19,32 +19,34 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Check In</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Check Out</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">No</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Nama</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Status</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Jam</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Tanggal</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($data as $key => $item)
                                 <tr>
-                                    <th scope="row">{{ $key + 1 }}</th>
+                                    <th scope="row" class="text-center">{{ $key + 1 }}</th>
                                     <td>
-                                        <p class="text-sm font-weight-bold mb-0">{{ $item->nama }}</p>
+                                        <p class="text-sm font-weight-bold mb-0 text-center">{{ $item->nama }}</p>
                                     </td>
                                     <td>
-                                        <p class="text-sm font-weight-bold mb-0">{{ $item->checkin }}</p>
+                                        <p class="text-sm font-weight-bold mb-0 text-center">{{ $item->status }}</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <p class="text-sm font-weight-bold mb-0">{{ $item->checkout }}</p>
+                                        <p class="text-sm font-weight-bold mb-0 text-center">{{ $item->jam }}</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <p class="text-sm font-weight-bold mb-0 text-center">{{ $item->tanggal }}</p>
                                     </td>
                                     <td class="align-middle text-end">
                                         <div class="d-flex px-3 py-1 justify-content-center align-items-center">
                                         <button type="submit" class="btn btn-danger mx-1 btn-delete" data-toggle="modal" data-target="#deleteModal" data-id="{{ $item->id }}"><i
                                                 class="far fa-trash-alt" aria-hidden="true"></i></button>
-                                            <a class="btn btn-info text-dark px-3" href="{{ route('cutiedit', ['id' => $item->id]) }}"><i
-                                                class="fas fa-pencil-alt text-dark" aria-hidden="true"></i></a>
                                         </div>
                                     </td>
                                 </tr>

@@ -124,7 +124,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::delete('/penugasan/{id}', [PenugasanController::class, 'destroy'])->name('penugasan.destroy');
 
 	Route::get('/absen', [AbsenController::class, 'index'])->name('absen');
-	Route::get('/absenimport', [AbsenController::class, 'import'])->name('absenimport');
+	Route::get('/absencreate', [AbsenController::class, 'create'])->name('absencreate');
+	Route::post('/absen', [AbsenController::class, 'store'])->name('absen.store');
+	Route::delete('/absen/{id}', [AbsenController::class, 'destroy'])->name('absen.destroy');
 
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');

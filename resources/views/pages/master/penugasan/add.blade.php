@@ -42,8 +42,12 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal</label>
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal Penugasan</label>
                                         <input class="form-control" type="date" name="tanggal" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Tujuan</label>
+                                        <input class="form-control" type="text" name="tujuan" placeholder="Masukkan Tujuan Karyawan Yang Ditugaskan" required>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" type="hidden" name="created_by" value="{{ old('id', auth()->user()->username) }}">

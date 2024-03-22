@@ -21,9 +21,9 @@
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">No</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Nama</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Divisi</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Tanggal</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Tujuan</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,11 +33,11 @@
                                     <td>
                                         <p class="text-sm font-weight-bold mb-0 text-center">{{ $item->nama }}</p>
                                     </td>
-                                    <td>
-                                        <p class="text-sm font-weight-bold mb-0 text-center">{{ $item->divisi }}</p>
-                                    </td>
                                     <td class="align-middle text-center text-sm text-center">
                                         <p class="text-sm font-weight-bold mb-0">{{ $item->tanggal }}</p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm text-center">
+                                        <p class="text-sm font-weight-bold mb-0">{{ $item->tujuan }}</p>
                                     </td>
                                     <td class="align-middle text-end">
                                         <div class="d-flex px-3 py-1 justify-content-center align-items-center">
