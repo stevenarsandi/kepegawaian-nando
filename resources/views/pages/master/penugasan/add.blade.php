@@ -33,21 +33,15 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Jabatan</label>
-                                        <select name="jabatan" id="jabatan" class="form-control input-air-primary">
-                                            <option value="" selected hidden>Pilih Jabatan</option>
-                                            <option value="Manager">Manager</option>
-                                            <option value="Supervisor">Supervisor</option>
-                                            <option value="Member">Member</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal Penugasan</label>
                                         <input class="form-control" type="date" name="tanggal" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Tujuan</label>
                                         <input class="form-control" type="text" name="tujuan" placeholder="Masukkan Tujuan Karyawan Yang Ditugaskan" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="hidden" name="keterangan" value="Belum Selesai">
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" type="hidden" name="created_by" value="{{ old('id', auth()->user()->username) }}">

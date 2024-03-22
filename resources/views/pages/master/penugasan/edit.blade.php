@@ -34,15 +34,6 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Jabatan</label>
-                                        <select name="jabatan" id="jabatan" class="form-control input-air-primary">
-                                            <option value=" {{ $penugasan->jabatan }}" selected hidden>Pilih Jabatan</option>
-                                            <option value="Manager"  {{ $penugasan->jabatan === 'Manager' ? 'selected' : '' }}>Manager</option>
-                                            <option value="Supervisor" {{ $penugasan->jabatan === 'Supervisor' ? 'selected' : '' }}>Supervisor</option>
-                                            <option value="Member" {{ $penugasan->jabatan === 'Member' ? 'selected' : '' }}>Member</option>
-                                        </select>
-                                    </div> 
-                                    <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal</label>
                                         <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal Cuti" value="{{ $penugasan->tanggal }}">
                                     </div>
@@ -50,6 +41,14 @@
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Tujuan</label>
                                         <input class="form-control" type="text" name="tujuan" placeholder="Masukkan Tujuan Karyawan Yang Ditugaskan" value="{{ $penugasan->tujuan }}">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Keterangan</label>
+                                        <select name="keterangan" id="keterangan" class="form-control input-air-primary">
+                                            <option value=" {{ $penugasan->keterangan }}" selected hidden>Pilih keterangan</option>
+                                            <option value="Belum Selesai"  {{ $penugasan->keterangan === 'Belum Selesai' ? 'selected' : '' }}>Belum Selesai</option>
+                                            <option value="Selesai" {{ $penugasan->keterangan === 'Selesai' ? 'selected' : '' }}>Selesai</option>
+                                        </select>
+                                    </div> 
                                     <div class="form-group">
                                         <input class="form-control" type="hidden" name="updated_by" value="{{ old('id', auth()->user()->username) }}">
                                     </div>

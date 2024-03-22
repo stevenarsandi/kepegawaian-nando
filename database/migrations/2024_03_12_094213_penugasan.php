@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nama',100)->nullable();
             $table->string('divisi', 50)->nullable();
-            $table->string('jabatan', 50)->nullable();
             $table->date('tanggal');
             $table->string('tujuan', 50)->nullable();
+            $table->string('keterangan', 50)->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();

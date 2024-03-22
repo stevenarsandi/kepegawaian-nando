@@ -28,9 +28,9 @@ class PenugasanController extends Controller
         Penugasan::create([
             'nama' => $request->nama,
             'divisi' => $request->divisi,
-            'jabatan' => $request->jabatan,
             'tanggal' => $request->tanggal,
             'tujuan' => $request->tujuan,
+            'keterangan' => $request->keterangan,
             'created_by' => $request->created_by
         ]);
         return redirect()->route('penugasan')->with('succes', 'Data berhasil ditambahkan!');
@@ -53,9 +53,9 @@ class PenugasanController extends Controller
         $penugasan->update([
             'nama' => $request->nama,
             'divisi' => $request->divisi,
-            'jabatan' => $request->jabatan,
             'tanggal' => $request->tanggal,
             'tujuan' => $request->tujuan,
+            'keterangan' => $request->keterangan,
             'updated_by' => $request->updated_by
         ]);
         return redirect()->route('penugasan')->with('succes', 'Data berhasil di Ubah!');
