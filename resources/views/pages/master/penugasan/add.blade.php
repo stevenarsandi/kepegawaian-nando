@@ -41,6 +41,13 @@
                                         <input class="form-control" type="text" name="tujuan" placeholder="Masukkan Tujuan Karyawan Yang Ditugaskan" required>
                                     </div>
                                     <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Surat Tugas</label>
+                                        <input class="form-control" type="file" name="surattugas">
+                                        @error('surattugas')
+                                            <div class="text-danger small">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
                                         <input class="form-control" type="hidden" name="keterangan" value="Belum Selesai">
                                     </div>
                                     <div class="form-group">
@@ -58,4 +65,12 @@
         </div>
         @include('layouts.footers.auth.footer')
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('.text-danger').fadeOut('hard'); // Menghilangkan pesan error dengan efek fade
+            }, 3000); // Menghilangkan pesan error setelah 3 detik (3000 milidetik)
+        });
+    </script>
     @endsection

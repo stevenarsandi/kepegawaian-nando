@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             // $table->bigInteger('karyawan_id')->nullable();
             $table->string('nama',100)->nullable();
-            $table->string('divisi', 50)->nullable();
-            $table->string('jabatan', 50)->nullable();
+            // $table->string('divisi', 50)->nullable();
+            // $table->string('jabatan', 50)->nullable();
             $table->string('keterangan',100)->nullable();
             $table->date('tanggal');
             $table->string('lama',100)->nullable();

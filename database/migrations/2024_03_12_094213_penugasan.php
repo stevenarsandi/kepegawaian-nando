@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('divisi', 50)->nullable();
             $table->date('tanggal');
             $table->string('tujuan', 50)->nullable();
+            $table->string('surattugas', 100)->nullable();
             $table->string('keterangan', 50)->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();

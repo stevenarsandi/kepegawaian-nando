@@ -23,6 +23,9 @@ class PelamarController extends Controller
     {
         $request->validate([
             'nama' => 'required',
+            'file' => 'required',
+        ], [
+            'file.required' => 'Berkas Lamaran Wajib Diupload!'
         ]);
 
         $file = $request->file('file');

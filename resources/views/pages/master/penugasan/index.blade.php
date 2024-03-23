@@ -24,6 +24,7 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Tanggal</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Tujuan</th> 
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Keterangan</th> 
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Surat Tugas</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Action</th>
                                 </tr>
                             </thead>
@@ -42,6 +43,9 @@
                                     </td>
                                     <td class="align-middle text-center text-sm text-center">
                                         <p class="text-sm font-weight-bold mb-0">{{ $item->keterangan }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0 text-center"><a href="{{ Storage::url('surattugas/'.$item->surattugas) }}" style="color: blue;">{{ $item->surattugas }}</a></p>
                                     </td>
                                     <td class="align-middle text-end">
                                         <div class="d-flex px-3 py-1 justify-content-center align-items-center">

@@ -23,13 +23,21 @@ class PenugasanController extends Controller
     {
         $request->validate([
             'nama' => 'required',
+            'surattugas' => 'required',
+        ], [
+            'surattugas.required' => 'Surat Tugas Harus Ada!'
         ]);
+
+        $file = $request->file('surattugas');
+        $fileName = $file->getClientOriginalName();
+        $filePath = $file->storeAs('public/surattugas', $fileName);
 
         Penugasan::create([
             'nama' => $request->nama,
             'divisi' => $request->divisi,
             'tanggal' => $request->tanggal,
             'tujuan' => $request->tujuan,
+            'surattugas' => $fileName,
             'keterangan' => $request->keterangan,
             'created_by' => $request->created_by
         ]);
@@ -50,6 +58,13 @@ class PenugasanController extends Controller
             'nama' => 'required',
         ]);
         
+        if ($request->hasFile('surattugas')) {
+            $file = $request->file('surattugas');
+            $fileName = $file->getClientOriginalName();
+            $filePath = $file->storeAs('public/surattugas', $fileName);
+            $penugasan->surattugas = $fileName;
+        }
+
         $penugasan->update([
             'nama' => $request->nama,
             'divisi' => $request->divisi,

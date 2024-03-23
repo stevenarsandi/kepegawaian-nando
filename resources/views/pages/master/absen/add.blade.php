@@ -35,6 +35,13 @@
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal</label>
                                         <input class="form-control" type="date" name="tanggal" placeholder="Masukkan Tanggal Checkin/Checkout" value="{{ $tanggal }}" readonly required>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Foto</label>
+                                        <input class="form-control" type="file" name="foto">
+                                        @error('foto')
+                                            <div class="text-danger small">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                     <!-- <div class="form-group text-center">
                                         <video id="video" width="640" height="480" autoplay></video>
                                         <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
@@ -56,45 +63,12 @@
         @include('layouts.footers.auth.footer')
     </div>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // const video = document.getElementById('video');
-        // const canvas = document.getElementById('canvas');
-        // const snapButton = document.getElementById('snap');
-
-        // navigator.mediaDevices.getUserMedia({ video: true })
-        //     .then(stream => {
-        //         video.srcObject = stream;
-        //     })
-        //     .catch(err => {
-        //         console.error('Error accessing camera:', err);
-        //     });
-
-        // snapButton.addEventListener('click', function() {
-        //     const context = canvas.getContext('2d');
-        //     canvas.width = video.videoWidth;
-        //     canvas.height = video.videoHeight;
-        //     context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-        //     const formData = new FormData();
-        //     canvas.toBlob(blob => {
-        //         formData.append('foto', blob, 'photo.jpg');
-
-        //         fetch('{{ route("absen.store") }}', {
-        //             method: 'POST',
-        //             body: formData,
-        //         })
-        //         .then(response => response.json())
-        //         .then(data => {
-        //             console.log('Response from server:', data);
-        //             alert('Foto berhasil diambil dan disimpan.');
-        //         })
-        //         .catch(error => {
-        //             console.error('Error sending photo to server:', error);
-        //             alert('Terjadi kesalahan saat mengirim foto.');
-        //         });
-        //     }, 'image/jpeg');
-        // });
-        </script>
-        
-        @endsection
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('.text-danger').fadeOut('hard'); // Menghilangkan pesan error dengan efek fade
+            }, 3000); // Menghilangkan pesan error setelah 3 detik (3000 milidetik)
+        });
+    </script>
+@endsection

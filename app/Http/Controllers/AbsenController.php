@@ -27,9 +27,16 @@ class AbsenController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            // 'foto' => 'required|image',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,svg',
+        ], [
+            'foto.required' => 'Foto wajib diupload!',
+            'foto.image' => 'Foto yang diupload harus berupa gambar!',
+            'foto.mimes' => 'Format gambar yang diizinkan adalah: jpeg, png, jpg, svg.',
         ]);
     
+        $file = $request->file('foto');
+        $fileName = $file->getClientOriginalName();
+        $filePath = $file->storeAs('public/fotoabsen', $fileName);
         // $imageName = uniqid() . '.' . $request->file('foto')->extension();
         // $fotoPath = $request->file('foto')->storeAs('public/fotoabsen', $imageName);
         // if ($request->hasFile('foto')) {
@@ -42,7 +49,7 @@ class AbsenController extends Controller
                 'status' => $request->status,
                 'jam' => $request->jam,
                 'tanggal' => $request->tanggal,
-                // 'foto' => $request-> $foto,
+                'foto' => $fileName,
                 'created_by' => $request->created_by
             ]);
         return redirect()->route('absen')->with('succes', 'Absensi berhasil disimpan');

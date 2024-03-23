@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('status', 50)->nullable();
             $table->string('jam', 50)->nullable();
             $table->date('tanggal');
+            $table->string('foto', 100)->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();

@@ -72,6 +72,9 @@
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">File</label>
                                         <input class="form-control" type="file" name="file">
+                                        @error('file')
+                                            <div class="text-danger small">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" type="hidden" name="created_by" value="{{ old('id', auth()->user()->username) }}">
@@ -88,4 +91,12 @@
         </div>
         @include('layouts.footers.auth.footer')
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('.text-danger').fadeOut('hard'); // Menghilangkan pesan error dengan efek fade
+            }, 3000); // Menghilangkan pesan error setelah 3 detik (3000 milidetik)
+        });
+    </script>
     @endsection

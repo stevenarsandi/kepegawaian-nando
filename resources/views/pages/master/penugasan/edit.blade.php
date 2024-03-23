@@ -42,6 +42,10 @@
                                         <input class="form-control" type="text" name="tujuan" placeholder="Masukkan Tujuan Karyawan Yang Ditugaskan" value="{{ $penugasan->tujuan }}">
                                     </div>
                                     <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Surat Tugas</label>
+                                        <input class="form-control" type="file" name="surattugas" value="{{ $penugasan->surattugas }}">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Keterangan</label>
                                         <select name="keterangan" id="keterangan" class="form-control input-air-primary">
                                             <option value=" {{ $penugasan->keterangan }}" selected hidden>Pilih keterangan</option>
