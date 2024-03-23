@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cuti;
 use App\Models\Karyawan;
+use Illuminate\Support\Facades\Auth;
 
 class CutiController extends Controller
 {
     public function index()
     {
-        $data = Cuti::all();
-        $data = Cuti::simplePaginate(5);
+        $username = Auth::user()->username;
+
+        $data = Cuti::where('nama', $username)
+                    ->simplePaginate(5);
         return view('pages.master.cuti.index', ['data' => $data]);
     }
 
@@ -30,8 +33,8 @@ class CutiController extends Controller
         Cuti::create([
             // 'karyawan_id' => $request->karyawan_id,
             'nama' => $request->nama,
-            'divisi' => $request->divisi,
-            'jabatan' => $request->jabatan,
+            // 'divisi' => $request->divisi,
+            // 'jabatan' => $request->jabatan,
             'keterangan' => $request->keterangan,
             'tanggal' => $request->tanggal,
             'lama' => $request->lama,
@@ -56,8 +59,8 @@ class CutiController extends Controller
         
         $cuti->update([
             'nama' => $request->nama,
-            'divisi' => $request->divisi,
-            'jabatan' => $request->jabatan,
+            // 'divisi' => $request->divisi,
+            // 'jabatan' => $request->jabatan,
             'keterangan' => $request->keterangan,
             'tanggal' => $request->tanggal,
             'lama' => $request->lama,

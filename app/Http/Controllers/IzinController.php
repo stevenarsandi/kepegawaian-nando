@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Izin;
 use App\Models\Karyawan;
+use Illuminate\Support\Facades\Auth;
 
 class IzinController extends Controller
 {
     public function index()
     {
-        $data = Izin::all();
-        $data = Izin::simplePaginate(5);
+        $username = Auth::user()->username;
+
+        $data = Izin::where('nama', $username)
+                    ->simplePaginate(5);
         return view('pages.master.izin.index', ['data' => $data]);
     }
 
@@ -30,8 +33,8 @@ class IzinController extends Controller
         Izin::create([
             // 'karyawan_id' => $request->karyawan_id,
             'nama' => $request->nama,
-            'divisi' => $request->divisi,
-            'jabatan' => $request->jabatan,
+            // 'divisi' => $request->divisi,
+            // 'jabatan' => $request->jabatan,
             'keterangan' => $request->keterangan,
             'tanggal' => $request->tanggal,
             'lama' => $request->lama,
@@ -56,8 +59,8 @@ class IzinController extends Controller
         
         $izin->update([
             'nama' => $request->nama,
-            'divisi' => $request->divisi,
-            'jabatan' => $request->jabatan,
+            // 'divisi' => $request->divisi,
+            // 'jabatan' => $request->jabatan,
             'keterangan' => $request->keterangan,
             'tanggal' => $request->tanggal,
             'lama' => $request->lama,

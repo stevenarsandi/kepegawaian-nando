@@ -9,5 +9,5 @@ class Cuti extends Model
 {
     use HasFactory;
     protected $table = "cutis";
-    protected $fillable = ['id', 'nama', 'divisi', 'jabatan', 'keterangan', 'tanggal', 'lama', 'acc', 'created_by', 'updated_by'];
+    protected $fillable = ['id', 'nama', 'keterangan', 'tanggal', 'lama', 'acc', 'created_by', 'updated_by'];
 }

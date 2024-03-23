@@ -20,7 +20,7 @@
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Nama</label>
                                         <input class="form-control" type="text" name="nama" placeholder="Masukkan Nama Cuti" value="{{ $cuti->nama }}">
                                     </div>
-                                    <div class="mb-4">
+                                    <!-- <div class="mb-4">
                                         <label class="ol-sm-2 col-form-label" for="divisi">Divisi</label>
                                         <select name="divisi" id="divisi" class="form-control input-air-primary">
                                             <option value="{{ $cuti->divisi }}" selected hidden>Pilih Divisi</option>
@@ -41,7 +41,7 @@
                                             <option value="Supervisor" {{ $cuti->jabatan === 'Supervisor' ? 'selected' : '' }}>Supervisor</option>
                                             <option value="Member" {{ $cuti->jabatan === 'Member' ? 'selected' : '' }}>Member</option>
                                         </select>
-                                    </div>     
+                                    </div>      -->
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Keterangan</label>
                                         <input class="form-control" type="text" name="keterangan" placeholder="Masukkan Keterangan Cuti" value="{{ $cuti->keterangan }}">

@@ -17,9 +17,9 @@
                             <div class="row">
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Nama</label>
-                                        <input class="form-control" type="text" name="nama" placeholder="Masukkan Nama Karyawan">
+                                        <input class="form-control" type="text" name="nama" placeholder="Masukkan Nama Karyawan" value="{{ old('id', auth()->user()->username) }}" readonly>
                                     </div>
-                                    <div class="mb-4">
+                                    <!-- <div class="mb-4">
                                         <label class="ol-sm-2 col-form-label" for="divisi">Divisi</label>
                                         <select name="divisi" id="divisi" class="form-control input-air-primary">
                                             <option value="" selected hidden>Pilih Divisi</option>
@@ -40,7 +40,7 @@
                                             <option value="Supervisor">Supervisor</option>
                                             <option value="Member">Member</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Keterangan</label>
                                         <input class="form-control" type="text" name="keterangan" placeholder="Masukkan Keterangan Izin">
