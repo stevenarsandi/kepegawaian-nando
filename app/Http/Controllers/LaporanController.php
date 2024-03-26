@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Session;
 use App\Exports\AbsenExport; 
 use App\Exports\IzinExport; 
 use App\Exports\CutiExport; 
@@ -31,7 +32,7 @@ class LaporanController extends Controller
             case 'Absensi':
                 $startDate = $request->input('start_date');
                 $endDate = $request->input('end_date');
-                return Excel::download(new AbsenExport($startDate, $endDate), 'laporan_absen.xlsx');
+                return Excel::download(new AbsenExport($startDate, $endDate), 'laporan_absensi.xlsx');
             case 'Data Karyawan':
                 $startDate = $request->input('start_date');
                 $endDate = $request->input('end_date');

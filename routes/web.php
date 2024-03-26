@@ -36,6 +36,8 @@ use App\Http\Controllers\SanksiController;
 use App\Http\Controllers\RewardController;            
 use App\Http\Controllers\PhkController;            
 use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\ApproveCutiController;
+use App\Http\Controllers\ApproveIzinController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PenugasanController;
 
@@ -131,6 +133,14 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
 	Route::post('/export', [LaporanController::class, 'export'])->name('laporan.export');
+
+	Route::get('/approveizin', [ApproveIzinController::class, 'index'])->name('approveizin');
+	Route::get('/approveizinedit/{id}', [ApproveIzinController::class, 'edit'])->name('approveizinedit');
+	Route::put('/approveizin/update/{id}', [approveizinController::class, 'update'])->name('approveizin.update');
+	
+	Route::get('/approvecuti', [ApproveCutiController::class, 'index'])->name('approvecuti');
+	Route::get('/approvecutiedit/{id}', [ApproveCutiController::class, 'edit'])->name('approvecutiedit');
+	Route::put('/approvecuti/update/{id}', [ApproveCutiController::class, 'update'])->name('approvecuti.update');
 
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');

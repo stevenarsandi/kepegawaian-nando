@@ -15,13 +15,11 @@ return new class extends Migration
             $table->id();
             // $table->bigInteger('karyawan_id')->nullable();
             $table->string('nama',100);
-            // $table->string('divisi', 50)->nullable();
-            // $table->string('jabatan', 50)->nullable();
             $table->string('keterangan',100)->nullable();
             $table->string('status',100)->nullable();
             $table->string('lama',100)->nullable();
             $table->date('tanggal');
-            $table->string('acc',100)->nullable();
+            $table->string('status',100)->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();
