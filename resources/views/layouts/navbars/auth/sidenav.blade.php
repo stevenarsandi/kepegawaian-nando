@@ -127,6 +127,15 @@
             <span class="nav-link-text ms-1">Penugasan</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link {{ str_contains(request()->url(), 'laporan') == true ? 'active' : '' }}" href="{{ url('/laporan') }}">
+            <div
+                class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+                <i class="fa fa-book text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Laporan</span>
+        </a>
+    </li>
         </ul>
     </div>
     

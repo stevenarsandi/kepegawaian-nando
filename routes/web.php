@@ -36,6 +36,7 @@ use App\Http\Controllers\SanksiController;
 use App\Http\Controllers\RewardController;            
 use App\Http\Controllers\PhkController;            
 use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PenugasanController;
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
@@ -127,6 +128,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/absencreate', [AbsenController::class, 'create'])->name('absencreate');
 	Route::post('/absen', [AbsenController::class, 'store'])->name('absen.store');
 	Route::delete('/absen/{id}', [AbsenController::class, 'destroy'])->name('absen.destroy');
+
+	Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
+	Route::post('/export', [LaporanController::class, 'export'])->name('laporan.export');
 
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
