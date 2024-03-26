@@ -29,6 +29,7 @@
                                             <option value="" selected hidden>Pilih Hak Akses</option>
                                             <option value="Admin">Admin</option>
                                             <option value="Member">Member</option>
+                                            <option value="Direktur">Direktur</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

@@ -30,6 +30,7 @@
                                             <option value="{{ $user->role }}" selected hidden>Pilih Hak Akses</option>
                                             <option value="Admin" {{ $user->role === 'Admin' ? 'selected' : '' }}>Admin</option>
                                             <option value="Member" {{ $user->role === 'Member' ? 'selected' : '' }}>Member</option>
+                                            <option value="Direktur" {{ $user->role === 'Direktur' ? 'selected' : '' }}>Direktur</option>
                                         </select>
                                     </div>
                             </div>

@@ -15,17 +15,19 @@
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">
                     <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa fa-home text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Dashboard</span>
-                </a>
-            </li>
+                    class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="fa fa-home text-dark text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Dashboard</span>
+            </a>
+        </li><hr class="horizontal dark mt-3">
+        @can('view-admin-menu')
             <li class="nav-item mt-3 d-flex align-items-center">
                 <div class="ps-4">
+                    <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Pengaturan Akun</h6>
                 </div>
-                <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Pengaturan Akun</h6>
             </li>
+        @endcan
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'profile' ? 'active' : '' }}" href="{{ route('profile') }}">
                     <div
@@ -35,6 +37,7 @@
                     <span class="nav-link-text ms-1">Profil Pengguna</span>
                 </a>
             </li>
+        @can('view-admin-menu')
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'user') == true ? 'active' : '' }}" href="{{ url('/user') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -49,37 +52,10 @@
             <li class="nav-item">
                 <a class="nav-link {{ str_contains(request()->url(), 'karyawan') == true ? 'active' : '' }}" href="{{ url('/karyawan') }}">
                     <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
-                        <i class="fa fa-user-plus text-dark text-sm opacity-10"></i>
-                    </div>
+                    class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+                    <i class="fa fa-user-plus text-dark text-sm opacity-10"></i>
+                </div>
                     <span class="nav-link-text ms-1">Karyawan</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'absen') == true ? 'active' : '' }}" href="{{ url('/absen') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
-                        <i class="fa fa-address-book-o text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Absensi</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'izin') == true ? 'active' : '' }}" href="{{ url('/izin') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
-                        <i class="fa fa-file-text text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Izin</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'cuti') == true ? 'active' : '' }}" href="{{ url('/cuti') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
-                        <i class="fa fa-file-text text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Cuti</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -112,30 +88,24 @@
     <li class="nav-item">
         <a class="nav-link {{ str_contains(request()->url(), 'phk') == true ? 'active' : '' }}" href="{{ url('/phk') }}">
             <div
-                class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
-                <i class="fa fa-user-times text-dark text-sm opacity-10"></i>
-            </div>
+            class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+            <i class="fa fa-user-times text-dark text-sm opacity-10"></i>
+        </div>
             <span class="nav-link-text ms-1">PHK</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link {{ str_contains(request()->url(), 'penugasan') == true ? 'active' : '' }}" href="{{ url('/penugasan') }}">
             <div
-                class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
-                <i class="fa fa-truck text-dark text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Penugasan</span>
-        </a>
+            class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+            <i class="fa fa-truck text-dark text-sm opacity-10"></i>
+        </div>
+        <span class="nav-link-text ms-1">Penugasan</span>
+    </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link {{ str_contains(request()->url(), 'laporan') == true ? 'active' : '' }}" href="{{ url('/laporan') }}">
-            <div
-                class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
-                <i class="fa fa-book text-dark text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Laporan</span>
-        </a>
-    </li>
+    <div class="ps-4">
+        <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Approval</h6>
+    </div>
     <li class="nav-item">
         <a class="nav-link {{ str_contains(request()->url(), 'approveizin') == true ? 'active' : '' }}" href="{{ url('/approveizin') }}">
             <div
@@ -154,7 +124,50 @@
             <span class="nav-link-text ms-1">Approval Cuti</span>
         </a>
     </li>
-        </ul>
+@endcan
+@can('view-member-menu')
+<li class="nav-item mt-3">
+    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Karyawan</h6>
+</li>
+<li class="nav-item">
+    <a class="nav-link {{ str_contains(request()->url(), 'absen') == true ? 'active' : '' }}" href="{{ url('/absen') }}">
+        <div
+        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+        <i class="fa fa-address-book-o text-dark text-sm opacity-10"></i>
     </div>
-    
+    <span class="nav-link-text ms-1">Absensi</span>
+</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link {{ str_contains(request()->url(), 'izin') == true ? 'active' : '' }}" href="{{ url('/izin') }}">
+        <div
+        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+        <i class="fa fa-file-text text-dark text-sm opacity-10"></i>
+    </div>
+    <span class="nav-link-text ms-1">Izin</span>
+</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link {{ str_contains(request()->url(), 'cuti') == true ? 'active' : '' }}" href="{{ url('/cuti') }}">
+        <div
+            class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+            <i class="fa fa-file-text text-dark text-sm opacity-10"></i>
+        </div>
+        <span class="nav-link-text ms-1">Cuti</span>
+    </a>
+</li>
+@endcan
+@can('view-direktur-menu')
+<li class="nav-item">
+    <a class="nav-link {{ str_contains(request()->url(), 'laporan') == true ? 'active' : '' }}" href="{{ url('/laporan') }}">
+        <div
+        class="icon icon-shape icon-sm border-radius-md text-center me-2 mb-1 d-flex align-items-center justify-content-center">
+        <i class="fa fa-book text-dark text-sm opacity-10"></i>
+    </div>
+    <span class="nav-link-text ms-1">Laporan</span>
+</a>
+</li>
+</ul>
+</div>
+@endcan
 </aside>
