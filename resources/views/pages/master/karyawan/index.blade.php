@@ -22,11 +22,17 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">No</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Nama</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Divisi</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Create Date</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Jabatan</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <form action="{{ route('karyawan') }}" method="GET" class="search-form">
+                                <div style="display: inline-block; margin-left: -5px;">
+                                    <input type="text" class="mx-5" name="search" placeholder="Ketik Untuk Mencari..." style="padding: 7px; border: 1px solid #ccc; border-radius: 5px 0 0 5px; width: 300px; font-size: 13px;">
+                                    <button type="submit" style="padding: 8px 10px; background-color: #007bff; color: #fff; border: 1px solid #007bff; border-radius: 5px; cursor: pointer;  margin-left: -35px;"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
                                 @foreach($data as $key => $item)
                                 <tr>
                                     <th scope="row" class="text-center">{{ $key + 1 }}</th>
@@ -37,7 +43,7 @@
                                         <p class="text-sm font-weight-bold mb-0 text-center">{{ $item->divisi }}</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <p class="text-sm font-weight-bold mb-0 text-center">{{ $item->created_at }}</p>
+                                        <p class="text-sm font-weight-bold mb-0 text-center">{{ $item->jabatan }}</p>
                                     </td>
                                     <td class="align-middle text-end">
                                         <div class="d-flex px-3 py-1 justify-content-center align-items-center">

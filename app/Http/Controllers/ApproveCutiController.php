@@ -8,9 +8,21 @@ use Illuminate\Support\Facades\Auth;
 
 class ApproveCutiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = Cuti::simplePaginate(5);
+        $query = Cuti::query();
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('nama', 'like', '%'.$search.'%') 
+                  ->orWhere('tanggal', 'like', '%'.$search.'%')
+                  ->orWhere('status', 'like', '%'.$search.'%')
+                  ->orWhere('keterangan', 'like', '%'.$search.'%');
+        }
+        $query->orderByRaw('CASE WHEN status IS NULL OR status = "" THEN 0 ELSE 1 END')
+              ->orderBy('status', 'asc');
+    
+        $data = $query->simplePaginate(5);
         return view('pages.master.approvecuti.index', ['data' => $data]);
     }
     public function edit($id)

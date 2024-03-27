@@ -7,10 +7,12 @@ use App\Models\Reward;
 
 class RewardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = Reward::all();
-        $data = Reward::simplePaginate(5);
+        $search = $request->input('search');
+        $data = Reward::where('nama', 'like', '%'.$search.'%') 
+        ->orWhere('reward', 'like', '%'.$search.'%')
+        ->orWhere('tanggal', 'like', '%'.$search.'%')->simplePaginate(5);
         return view('pages.master.reward.index', ['data' => $data]);
     }
     

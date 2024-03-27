@@ -7,10 +7,12 @@ use App\Models\Sanksi;
 
 class SanksiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = Sanksi::all();
-        $data = Sanksi::simplePaginate(5);
+        $search = $request->input('search');
+        $data = Sanksi::where('nama', 'like', '%'.$search.'%') 
+        ->orWhere('divisi', 'like', '%'.$search.'%')
+        ->orWhere('sanksi', 'like', '%'.$search.'%')->simplePaginate(5);
         return view('pages.master.sanksi.index', ['data' => $data]);
     }
     

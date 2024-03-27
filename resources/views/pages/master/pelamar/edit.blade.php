@@ -71,6 +71,10 @@
                                         <input class="form-control" type="email" name="email" placeholder="Masukkan Alamat Email Pelamar" value="{{ $pelamar->email }}">
                                     </div>
                                     <div class="form-group">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">File</label>
+                                        <input class="form-control" type="file" name="file" value="{{ $pelamar->file }}">
+                                    </div>
+                                    <div class="form-group">
                                         <input class="form-control" type="hidden" name="updated_by" value="{{ old('id', auth()->user()->username) }}">
                                     </div>
                             </div>

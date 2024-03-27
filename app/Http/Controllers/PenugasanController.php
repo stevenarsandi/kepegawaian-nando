@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 
 class PenugasanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = Penugasan::all();
-        $data = Penugasan::simplePaginate(5);
+        $search = $request->input('search');
+        $data = Penugasan::where('nama', 'like', '%'.$search.'%') 
+        ->orWhere('tanggal', 'like', '%'.$search.'%')
+        ->orWhere('tujuan', 'like', '%'.$search.'%')
+        ->orWhere('keterangan', 'like', '%'.$search.'%')->simplePaginate(5);
         return view('pages.master.penugasan.index', ['data' => $data]);
     }
     

@@ -7,10 +7,10 @@ use App\Models\Pelamar;
 
 class PelamarController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = Pelamar::all();
-        $data = Pelamar::simplePaginate(5);
+        $search = $request->input('search');
+        $data = Pelamar::where('nama', 'like', '%'.$search.'%')->simplePaginate(5);
         return view('pages.master.pelamar.index', ['data' => $data]);
     }
     
@@ -61,6 +61,12 @@ class PelamarController extends Controller
         $request->validate([
             'nama' => 'required',
         ]);
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName = $file->getClientOriginalName();
+            $filePath = $file->storeAs('public/pelamar', $fileName);
+            $pelamar->file = $fileName;
+        }
         
         $pelamar->update([
             'nama' => $request->nama,

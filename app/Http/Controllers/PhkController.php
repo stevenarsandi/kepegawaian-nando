@@ -7,10 +7,12 @@ use App\Models\Phk;
 
 class PhkController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = Phk::all();
-        $data = Phk::simplePaginate(5);
+        $search = $request->input('search');
+        $data = Phk::where('nama', 'like', '%'.$search.'%') 
+        ->orWhere('jenis', 'like', '%'.$search.'%')
+        ->orWhere('keterangan', 'like', '%'.$search.'%')->simplePaginate(5);
         return view('pages.master.phk.index', ['data' => $data]);
     }
     

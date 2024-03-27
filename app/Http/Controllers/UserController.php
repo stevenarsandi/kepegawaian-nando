@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = User::all();
-        $data = User::simplePaginate(5);
+        $search = $request->input('search');
+        $data = User::where('username', 'like', '%'.$search.'%') 
+        ->orWhere('role', 'like', '%'.$search.'%')->simplePaginate(5);
         return view('pages.master.user.index', ['data' => $data]);
     }
     

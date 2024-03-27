@@ -7,10 +7,12 @@ use App\Models\Karyawan;
 
 class KaryawanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = Karyawan::all();
-        $data = Karyawan::simplePaginate(5);
+        $search = $request->input('search');
+        $data = Karyawan::where('nama', 'like', '%'.$search.'%') 
+        ->orWhere('divisi', 'like', '%'.$search.'%')
+        ->orWhere('jabatan', 'like', '%'.$search.'%')->simplePaginate(5);
         return view('pages.master.karyawan.index', ['data' => $data]);
     }
     

@@ -8,11 +8,21 @@ use Illuminate\Support\Facades\Auth;
 
 class ApproveIzinController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $username = Auth::user()->username;
+        $query = Izin::query();
 
-        $data = Izin::simplePaginate(5);
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('nama', 'like', '%'.$search.'%') 
+                  ->orWhere('tanggal', 'like', '%'.$search.'%')
+                  ->orWhere('status', 'like', '%'.$search.'%')
+                  ->orWhere('keterangan', 'like', '%'.$search.'%');
+        }
+        $query->orderByRaw('CASE WHEN status IS NULL OR status = "" THEN 0 ELSE 1 END')
+              ->orderBy('status', 'asc');
+    
+        $data = $query->simplePaginate(5);
         return view('pages.master.approveizin.index', ['data' => $data]);
     }
     

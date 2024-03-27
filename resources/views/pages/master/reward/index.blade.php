@@ -27,6 +27,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <form action="{{ route('reward') }}" method="GET" class="search-form">
+                                <div style="display: inline-block; margin-left: -5px;">
+                                    <input type="text" class="mx-5" name="search" placeholder="Ketik Untuk Mencari..." style="padding: 7px; border: 1px solid #ccc; border-radius: 5px 0 0 5px; width: 300px; font-size: 13px;">
+                                    <button type="submit" style="padding: 8px 10px; background-color: #007bff; color: #fff; border: 1px solid #007bff; border-radius: 5px; cursor: pointer;  margin-left: -35px;"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
                                 @foreach($data as $key => $item)
                                 <tr>
                                     <th scope="row" class="text-center">{{ $key + 1 }}</th>
