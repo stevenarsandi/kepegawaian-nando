@@ -29,13 +29,13 @@
                                                 <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Masuk</button>
                                             </div>
                                         </form>
-                                    </div>
-                                    <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                    </div><br><br>
+                                    <!-- <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                         <p class="mb-4 text-sm mx-auto">
                                             Belum punya Akun?
                                             <a href="{{ route('register') }}" class="text-primary text-gradient font-weight-bold">Registrasi</a>
                                         </p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
